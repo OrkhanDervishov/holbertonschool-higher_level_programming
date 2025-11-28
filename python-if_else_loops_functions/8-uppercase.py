@@ -6,4 +6,3 @@ def uppercase(str):
         else:
             print(i, end="")
 
-uppercase("Hello World")
