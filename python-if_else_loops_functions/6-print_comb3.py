@@ -5,4 +5,3 @@ for i in range(0, 9):
             print("{num:02d}".format(num=j), end=", ")
         else:
             print("{num:02d}".format(num=j))
-        
