@@ -10,7 +10,7 @@ if __name__ == "__main__":
     b = int(argv[3])
     op = ""
     res = 0
-    
+
     if argv[2] == "+":
         op = "+"
         res = int(a + b)
