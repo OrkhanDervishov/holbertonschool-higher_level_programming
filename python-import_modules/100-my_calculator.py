@@ -14,16 +14,16 @@ if __name__ == "__main__":
 
     if argv[2] == "+":
         op = "+"
-        res = a + b
+        res = int(a + b)
     elif argv[2] == "-":
         op = "-"
-        res = a - b
+        res = int(a - b)
     elif argv[2] == "*":
         op = "*"
-        res = a * b
+        res = int(a * b)
     elif argv[2] == "/":
         op = "/"
-        res = a / b
+        res = int(a / b)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
