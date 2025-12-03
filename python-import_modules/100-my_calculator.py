@@ -11,7 +11,6 @@ if __name__ == "__main__":
     op = ""
     res = 0
     
-
     if argv[2] == "+":
         op = "+"
         res = int(a + b)
@@ -28,5 +27,5 @@ if __name__ == "__main__":
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
-    print("{va} {oper} {vb} = {result}".format(va=a, oper=op, vb=b, result=res))
+    print("{va} {oper} {vb} = {r}".format(va=a, oper=op, vb=b, r=res))
     exit(0)
