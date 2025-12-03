@@ -10,22 +10,23 @@ if __name__ == "__main__":
     b = int(argv[3])
     op = ""
     res = 0
-    match argv[2]:
-        case "+":
-            op = "+"
-            res = a + b
-        case "-":
-            op = "-"
-            res = a - b
-        case "*":
-            op = "*"
-            res = a * b
-        case "/":
-            op = "/"
-            res = a / b
-        case _:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+    
+
+    if argv[2] == "+":
+        op = "+"
+        res = a + b
+    elif argv[2] == "-":
+        op = "-"
+        res = a - b
+    elif argv[2] == "*":
+        op = "*"
+        res = a * b
+    elif argv[2] == "/":
+        op = "/"
+        res = a / b
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
 
     print("{va} {oper} {vb} = {result}".format(va=a, oper=op, vb=b, result=res))
     exit(0)
