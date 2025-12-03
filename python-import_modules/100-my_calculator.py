@@ -10,7 +10,7 @@ if __name__ == "__main__":
     b = int(argv[3])
     op = ""
     res = 0
-    match sys.argv[2]:
+    match argv[2]:
         case "+":
             op = "+"
             res = a + b
