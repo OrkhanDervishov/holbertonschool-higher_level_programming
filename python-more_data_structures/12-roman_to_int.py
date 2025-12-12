@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if isinstance(roman_string, string) == False:
+    if isinstance(roman_string, str) == False:
         return 0
     sum = 0
     for i in roman_string:
@@ -18,6 +18,7 @@ def roman_to_int(roman_string):
             sum += 500
         elif i == 'M':
             sum += 1000
+    return sum
 
 
             
