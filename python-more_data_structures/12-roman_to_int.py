@@ -1,21 +1,16 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if isinstance(roman_string, str) == False:
+    if not isinstance(roman_string, str):
         return 0
+    elif len(roman_string) == 0:
+        return None
+    roman_keys = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500}
     sum = 0
-    for i in roman_string:
-        if i == 'I':
-            sum += 1
-        elif i == 'V':
-            sum += 5
-        elif i == 'X':
-            sum += 10
-        elif i == 'L':
-            sum += 50
-        elif i == 'C':
-            sum += 100
-        elif i == 'D':
-            sum += 500
-        elif i == 'M':
-            sum += 1000
+    for index, value in enumerate(roman_string):
+        if index == 0:
+            sum += roman_keys[value]
+        elif roman_keys[roman_string[index-1]] < roman_keys[value]:
+            sum += roman_keys[value] - 2 * roman_keys[roman_string[index-1]]
+        else:
+            sum += roman_keys[value]
     return sum
