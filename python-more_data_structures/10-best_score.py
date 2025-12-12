@@ -1,8 +1,18 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary is {}:
+    if a_dictionary is None:
         return None
-    max = -999999
+    maxValue = -999999
+    maxKey = None
     for i in a_dictionary.keys():
-        max = a_dictionary[i] if a_dictionary[i] > max else max
-    return max
+        maxKey = i if a_dictionary[i] > maxValue else maxKey
+        maxValue = a_dictionary[maxKey]
+    return maxKey
+
+
+a_dictionary = {'John': 12, 'Bob': 14, 'Mike': 14, 'Molly': 16, 'Adam': 10}
+best_key = best_score(a_dictionary)
+print("Best score: {}".format(best_key))
+
+best_key = best_score(None)
+print("Best score: {}".format(best_key))
