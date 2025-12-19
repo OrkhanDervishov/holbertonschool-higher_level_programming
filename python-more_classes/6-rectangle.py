@@ -5,11 +5,12 @@
 class Rectangle:
     '''Documentation'''
     number_of_instances = 0
-    
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-        number_of_instances += 1
+
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -36,12 +37,12 @@ class Rectangle:
         self.__height = height
 
     def area(self):
-        return self.width * self.height
+        return self.__height * self.__width
 
     def perimeter(self):
         if self.__width == 0 or self.__height == 0:
             return 0
-        return 2*self.width + 2*self.height
+        return (self.__height + self.__width) * 2
 
     def __draw(self):
         rectangle = ""
@@ -65,5 +66,5 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        number_of_instances -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
