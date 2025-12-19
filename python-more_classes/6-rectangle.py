@@ -5,6 +5,7 @@
 class Rectangle:
     '''Documentation'''
     number_of_instances = 0
+    print_symbol = #
 
     def __init__(self, width=0, height=0):
         self.width = width
@@ -50,7 +51,7 @@ class Rectangle:
         width = self.__width
 
         for i in range(height):
-            rectangle += "#" * width
+            rectangle += Rectangle.print_symbol * width
 
             if i != height - 1:
                 rectangle += "\n"
