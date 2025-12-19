@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+'''Documentation'''
+
+
 class Rectangle:
     """za"""
     def __init__(self, width=0, height=0):
