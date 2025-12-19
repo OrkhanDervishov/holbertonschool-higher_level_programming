@@ -40,7 +40,6 @@ class Rectangle:
             return 0
         return 2*self.width + 2*self.height
 
-    
     def __draw(self):
         rectangle = ""
         height = self.__height
