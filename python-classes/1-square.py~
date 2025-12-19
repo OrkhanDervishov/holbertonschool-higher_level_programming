@@ -6,4 +6,4 @@ class Square:
     '''Class Documentation'''
 
     def __init__(self, size):
-        self.__size = size
+        __size = size
