@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+"""Doc"""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+
+class Rectangle(BaseGeometry):
+    """Doc"""
+
+    def __init__(self, width, height):
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def print(self):
+        print(f"[Rectangle] {self.width}/{self.height}")
+
+    def str(self):
+        return f"[Rectangle] {self.width}/{self.height}"
