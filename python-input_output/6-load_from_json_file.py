@@ -5,7 +5,5 @@ import json
 
 def load_from_json_file(filename):
     """Doc"""
-    with open(filename, "r") as file:
-        data = file.read()
-        obj = json.loads(data)
-    return obj
+    with open(filename, "r", encoding="utf-8") as f:
+        return json.load(f)
