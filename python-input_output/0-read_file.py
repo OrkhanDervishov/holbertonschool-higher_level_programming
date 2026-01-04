@@ -4,4 +4,4 @@
 def read_file(filename=""):
     """Doc"""
     with open(filename, encoding="utf-8") as file:
-        read_data = file.read()
+        read_data = file.readlines()
