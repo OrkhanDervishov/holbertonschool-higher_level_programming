@@ -4,4 +4,4 @@ import json
 
 def to_json_string(my_obj):
     """Doc"""
-    return json.dumps(my_obj.__dict__)
+    return json.dumps(my_obj)
