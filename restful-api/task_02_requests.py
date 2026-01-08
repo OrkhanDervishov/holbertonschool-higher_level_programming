@@ -2,11 +2,11 @@
 import requests
 import csv
 
-URL = "https://www.w3schools.com/python/ref_requests_get.asp"
+URL = "https://jsonplaceholder.typicode.com/posts"
 
 def fetch_and_print_posts():
-    obj = requests.get(URL)
-    print(f"Status code: {obj.status_code}")
+    response = requests.get(URL)
+    print(f"Status code: {response.status_code}")
     
     if response.status_code == 200:
         posts = response.json()
@@ -36,3 +36,9 @@ def fetch_and_save_posts():
             )
             writer.writeheader()
             writer.writerows(structured_posts)
+
+
+
+if __name__ == "__main__":
+    fetch_and_print_posts()
+    fetch_and_save_posts()
