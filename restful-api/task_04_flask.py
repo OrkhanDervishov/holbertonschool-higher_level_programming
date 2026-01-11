@@ -2,20 +2,29 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# In-memory user storage (must start empty)
 users = {}
 
+
+# Root endpoint
 @app.route("/")
 def home():
     return "Welcome to the Flask API!"
 
-@app.route("/data")
-def get_data():
-    return jsonify(list(users.keys()))
 
+# Status endpoint
 @app.route("/status")
 def status():
     return "OK"
 
+
+# Data endpoint: return list of usernames
+@app.route("/data")
+def data():
+    return jsonify(list(users.keys()))
+
+
+# Get user by username
 @app.route("/users/<username>")
 def get_user(username):
     if username not in users:
@@ -23,31 +32,36 @@ def get_user(username):
 
     return jsonify(users[username])
 
+
+# Add new user (POST)
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    # Ensure request contains JSON
+    # Check for valid JSON
     if not request.is_json:
         return jsonify({"error": "Invalid JSON"}), 400
 
     data = request.get_json()
 
-    # Validate username
+    # Username validation
     username = data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    # Check if username already exists
+    # Duplicate username check
     if username in users:
         return jsonify({"error": "Username already exists"}), 409
 
-    # Add user to dictionary
-    users[username] = {
+    # Store full user object
+    user = {
+        "username": username,
         "name": data.get("name"),
         "age": data.get("age"),
         "city": data.get("city")
     }
 
+    users[username] = user
+
     return jsonify({
-        "message": "User added successfully",
-        "user": users[username]
+        "message": "User added",
+        "user": user
     }), 201
