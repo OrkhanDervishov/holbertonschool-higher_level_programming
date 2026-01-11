@@ -12,19 +12,16 @@ def home():
     return "Welcome to the Flask API!"
 
 
-# Status endpoint
 @app.route("/status")
 def status():
     return "OK"
 
 
-# Data endpoint: return list of usernames
 @app.route("/data")
 def data():
     return jsonify(list(users.keys()))
 
 
-# Get user by username
 @app.route("/users/<username>")
 def get_user(username):
     if username not in users:
@@ -33,25 +30,20 @@ def get_user(username):
     return jsonify(users[username])
 
 
-# Add new user (POST)
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    # Check for valid JSON
     if not request.is_json:
         return jsonify({"error": "Invalid JSON"}), 400
 
     data = request.get_json()
 
-    # Username validation
     username = data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
-    # Duplicate username check
     if username in users:
         return jsonify({"error": "Username already exists"}), 409
 
-    # Store full user object
     user = {
         "username": username,
         "name": data.get("name"),
