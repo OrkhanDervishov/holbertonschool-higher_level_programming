@@ -1,2 +1,2 @@
 -- comment
-SELECT score, name FROM second_table ORDER BY core DESC;
+SELECT score, name FROM second_table ORDER BY score DESC;
