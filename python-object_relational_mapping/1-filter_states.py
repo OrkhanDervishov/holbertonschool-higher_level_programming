@@ -20,7 +20,11 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    cursor.execute("""
+        SELECT id, name FROM states
+        WHERE name LIKE BINARY 'N%'
+        ORDER BY id ASC
+    """)
 
     rows = cursor.fetchall()
 
