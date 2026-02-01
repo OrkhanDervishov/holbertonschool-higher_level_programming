@@ -1,4 +1,5 @@
 #!/usr/bin/node
+
 const lines = [
   'C is fun',
   'Python is cool',
